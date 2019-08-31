@@ -1,0 +1,33 @@
+.lists-wrapper {
+    background-color: #fff;
+    align-self: auto;
+    height: 100%;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: beige;
+    justify-content: center;
+}
+
+.item-wrapper {
+    align-self: auto;
+    background-color:#809AAC;
+    display: flex;
+    flex-direction: row;
+    margin-top: 1vh;
+    padding: 2vh;
+    border-radius: 15px;
+    border: 1px solid blue;
+    width: 60%;
+}
+
+.data {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.data p {
+    margin: 3vh;
+}

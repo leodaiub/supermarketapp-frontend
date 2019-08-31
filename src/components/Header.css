@@ -1,0 +1,67 @@
+.header-wrap {
+    height: 8vh;
+    background-color: #8DB5D1;
+    border: 1px solid #f1f1f1;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.18);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+}
+
+.invisible {
+    flex: 1;
+}
+
+.logo {
+    padding: 1vh 2vh;
+    border-radius: 20px;
+    justify-self: center;
+    align-self: center;
+    display: flex;
+    flex: 2;
+}
+
+.logo:hover {
+    background-color: #7cdeeb;
+}
+
+.logo-img img {
+    width: 5vh;
+    height: 5vh;
+}
+
+.logo-text {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 3vh;
+    margin-left: 2vh;
+    align-self: center;
+}
+
+.button {
+    align-self: center;
+    margin-right: 2vh;
+    flex: 3;
+}
+
+.button button {
+    color: #fff !important;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: #3072ed;
+    padding: 2vh;
+    border-radius: 5px;
+    display: inline-block;
+    border: none;
+    transition: all 0.4s ease 0s;
+}
+
+.button button:hover {
+    background: #140569;
+    letter-spacing: 1px;
+    -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+    transition: all 0.4s ease 0s;
+}
+
+
