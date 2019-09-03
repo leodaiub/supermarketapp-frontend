@@ -1,12 +1,13 @@
 import React from 'react';
 import './App.css';
-import Header from './components/Header';
-import List from './components/List';
+//import Create from './pages/Create';
+//import Listview from './pages/Listview';
+//import Recordview from './pages/Recordview';
+import List from './pages/List';
 
 function App() {
   return (
     <div className="App">
-      <Header></Header>
       <List></List>
     </div>
   );
