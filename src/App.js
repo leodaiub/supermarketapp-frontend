@@ -1,13 +1,25 @@
 import React from 'react';
 import './App.css';
-import List from './pages/List';
-import Header from './components/Header'
+import Particles from 'react-particles-js';
+import Routes from './routes.js';
+
+const particlesOptions ={
+  particles: {
+      number: {
+          value: 300,
+          density: {
+            enable: true,
+            value_area: 1500
+       }
+    }
+  }
+}
 
 function App() {
   return (
     <div className="App">
-      <Header></Header>
-      <List></List>
+      <Particles  className='particles'  params={particlesOptions}/>
+      <Routes />
     </div>
   );
 }

@@ -1,24 +1,29 @@
-import React, { Component } from 'react';
+import React from 'react';
 import logo from '../assets/shopping-cart.svg';
+import { Link } from 'react-router-dom';
 import './Header.css';
 
-export default class components extends Component {
-  render() {
+export default function Header(){
     return (
       <div className='header-wrap'>
         <div className="button">
-          <button className="button-item">Return Home</button>
+          <Link to="/">
+          <button className="button-item">Home</button>
+          </Link>
         </div>
-        <div className="logo">
+        <Link className="logo" to="/"> 
+        <div className="logo">     
           <div className='logo-img'>
               <img src={logo} alt="Shopping Cart"/>
           </div>
           <div className="logo-text">SuperMarketApp</div>
         </div>
+        </Link>  
         <div className="button">
-          <button className="button-item">Create New Market</button>
+        <Link to="/Create/">
+          <button className="button-item">New Market</button>
+        </Link>
         </div>
       </div> 
     );
-  }
 }

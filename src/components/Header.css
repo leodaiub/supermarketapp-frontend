@@ -1,3 +1,6 @@
+* {
+    text-decoration: none;
+}
 .header-wrap {
     height: 8vh;
     background-color:transparent;
@@ -13,6 +16,7 @@
     display: flex;
     flex-basis: 34%;
     justify-content: center;
+    flex-direction: row;
 }
 
 .logo:hover {
@@ -32,6 +36,7 @@
     color: white;
     font-weight: bold;
     justify-content: center;
+    align-self: center;
 }
 
 .button {
