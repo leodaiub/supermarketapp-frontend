@@ -1,13 +1,12 @@
 import React from 'react';
 import './App.css';
-//import Create from './pages/Create';
-//import Listview from './pages/Listview';
-//import Recordview from './pages/Recordview';
 import List from './pages/List';
+import Header from './components/Header'
 
 function App() {
   return (
     <div className="App">
+      <Header></Header>
       <List></List>
     </div>
   );
