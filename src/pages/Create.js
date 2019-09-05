@@ -39,7 +39,7 @@ export default class Create extends Component {
         data.append('superMarketLocation', JSON.stringify(this.state.superMarketLocation));
 
         await api.post('market', data);
-
+        console.log(JSON.stringify(Object.fromEntries(data)));
         this.props.history.push('/');
     }
 

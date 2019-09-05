@@ -46,10 +46,10 @@ export default class List extends Component {
                 <p><strong>Nome:</strong> { market.superMarketName ? market.superMarketName : 'ola' }</p>
                 <p><strong>Telefone:</strong> { market.superMarketName ? market.superMarketPhone : 'ola' }</p>
                 <p><strong>Descrição:</strong> { market.superMarketName ? market.superMarketDescription : 'ola' }</p>
-                <p><strong>Rua:</strong> { market.superMarketName ? market.superMarketLocation.Street : 'ola' }</p>
-                <p><strong>CEP:</strong> { market.superMarketName ? market.superMarketLocation.Zip : 'ola' }</p>
-                <p><strong>Cidade:</strong> { market.superMarketName ? market.superMarketLocation.city : 'ola' }</p>
-                <p><strong>Estado:</strong> {market.superMarketName ? market.superMarketLocation.state : 'ola' }</p>
+                <p><strong>Rua:</strong> { market.superMarketLocation ? market.superMarketLocation.Street : 'ola' }</p>
+                <p><strong>CEP:</strong> { market.superMarketLocation ? market.superMarketLocation.Zip : 'ola' }</p>
+                <p><strong>Cidade:</strong> { market.superMarketLocation ? market.superMarketLocation.city : 'ola' }</p>
+                <p><strong>Estado:</strong> {market.superMarketLocation ? market.superMarketLocation.state : 'ola' }</p>
               </div>   
             </div>
             </Link>
