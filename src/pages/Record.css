@@ -1,0 +1,96 @@
+.data-wrap {
+    display: flex;
+    flex-direction: row;
+}
+
+.images-wrap{
+    margin: 2vw;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.8);
+    box-sizing: border-box;
+    background-color: rgba(1, 1, 1, 0.185);
+    padding: 2vh;
+    margin-left: 10vw;
+}
+
+.main-image {
+    display: flex;
+    flex-direction: column;
+}
+.main-image img {
+    width: 40vw;
+    height: 50vh;
+}
+.main-image input {
+    height: 4vh;
+    border-radius: 4px;
+    padding: 0 20px;
+    font-size: 14px;
+    width: 20vw;
+    align-self: center;
+}
+
+.additional-images {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid rgba(0, 0, 0, 0.027);
+}
+
+.additional-images input {
+    height: 4vh;
+    border-radius: 4px;
+    padding: 0 20px;
+    font-size: 14px;
+    width: 8vw;
+}
+
+.additional-images div{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(0, 0, 0, 0.027);
+}
+
+.additional-images img {
+    width: 12vw;
+    height: 20vh;
+    margin: 0.5vw;
+}
+
+.form {
+    width: 30vw;
+    margin: 2vw;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.8);
+    box-sizing: border-box;
+    background-color: rgba(1, 1, 1, 0.185);
+    padding: 2vh;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.form label {
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 3vh;
+    width: 5vw;
+}
+
+.form input {
+    border-radius: 5px;
+    height: 4vh;
+    width: 10vw;
+}
+.form input:nth-child(15) {
+    color: rgb(255, 255, 255);
+    background-color: rgb(45, 87, 167); 
+    box-shadow: 0 1px 5px rgba(0,0,0,0.8);
+    box-sizing: border-box; 
+}
+
+.form input:nth-last-child(1) {
+    color: rgb(255, 255, 255);
+    background-color: rgb(202, 0, 0); 
+    box-shadow: 0 1px 5px rgba(0,0,0,0.8);
+    box-sizing: border-box; 
+}

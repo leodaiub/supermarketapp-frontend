@@ -9,7 +9,9 @@
     flex-direction: row;
     background-color: transparent;
     flex-wrap: wrap;
-    padding: 5vh;
+    padding: 5vh;   
+    justify-content: flex-start;
+    align-self: center; 
 }
 
 a {
@@ -26,11 +28,13 @@ a {
     flex-direction: column;
     margin: 0.5vh;
     height: 80vh;
-    width: 50vh;
+    flex-basis: 25%;
     border-radius: 15px;
     border: 1px solid rgba(0, 0, 0, 0.20);
     box-shadow: 1px solid rgba(0, 0, 0, 0.20);
     color: #fff;
+    justify-content: center;
+    align-self: center;
 }
 
 .data {
