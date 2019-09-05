@@ -27,7 +27,7 @@ a {
     display: flex;
     flex-direction: column;
     margin: 0.5vh;
-    height: 80vh;
+    height: 100vh;
     flex-basis: 25%;
     border-radius: 15px;
     border: 1px solid rgba(0, 0, 0, 0.20);
