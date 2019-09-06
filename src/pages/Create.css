@@ -1,5 +1,5 @@
 form#new-post {
-    width: 100%;
+    width: 80%;
     max-width: 580px;
     margin: 30px auto 0;
     padding: 30px;
@@ -8,6 +8,7 @@ form#new-post {
     display: flex;
     flex-direction: column;
     border-radius: 5px;
+    height: 80%;
   }
   
   form#new-post input {
