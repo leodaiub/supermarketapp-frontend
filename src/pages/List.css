@@ -35,6 +35,7 @@ a {
     color: #fff;
     justify-content: center;
     align-self: center;
+    width: 80%;
 }
 
 .data {
@@ -75,9 +76,10 @@ a {
     height: 10vh;
 }
 
-@media(max-width: 600px) {
+@media(max-width: 1200px) {
     * {
     text-decoration: none;
+    
 }
 .lists-wrapper {
     background-color: #fff;
@@ -160,7 +162,7 @@ a {
 
 .images img {
     margin: 0.5vh;
-    width: 14vh;
+    width: 10vh;
     height: 10vh;
 }
 }
