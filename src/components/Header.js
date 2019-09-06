@@ -21,7 +21,7 @@ export default function Header(){
         </Link>  
         <div className="button">
         <Link to="/Create/">
-          <button className="button-item">New Market</button>
+          <button className="button-item">New</button>
         </Link>
         </div>
       </div> 
