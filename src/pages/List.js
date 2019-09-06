@@ -29,13 +29,13 @@ export default class List extends Component {
               </div>
               <div className='images'>
                 <img 
-                src={market.superMarketAdditionalImages ? market.superMarketAdditionalImages[0][0].location : market.superMarketMainImage.location} 
+                src={market.superMarketAdditionalImages[0] ? market.superMarketAdditionalImages[0][0].location : market.superMarketMainImage.location} 
                 width ='100' alt=""/>
                 <img 
-                src={market.superMarketAdditionalImages ? market.superMarketAdditionalImages[1][0].location : market.superMarketMainImage.location} 
+                src={market.superMarketAdditionalImages[1] ? market.superMarketAdditionalImages[1][0].location : market.superMarketMainImage.location} 
                 width ='100' alt=""/>
                 <img 
-                src={market.superMarketAdditionalImages ? market.superMarketAdditionalImages[2][0].location : market.superMarketMainImage.location} 
+                src={market.superMarketAdditionalImages[2] ? market.superMarketAdditionalImages[2][0].location : market.superMarketMainImage.location} 
                 width ='100' alt=""/>
               </div>
               <div className="data">
