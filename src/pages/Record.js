@@ -3,7 +3,26 @@ import api from '../services/api';
 import './Record.css';
 
 export default class Record extends Component {
-    state = {};
+    constructor(props){
+        super(props)
+        this.state ={
+            superMarketLocation: {
+              street: '',
+              number: '',
+              district: '',
+              zip: '',
+              country: '',
+              city: '',
+              state: ''
+            },
+            superMarketName: '',
+            superMarketPhone: '',
+            superMarketDescription: '',
+            superMarketAdditionalImages: null,
+        };
+        this.handlgeImageChange = this.handlgeImageChange.bind(this)
+    }
+   
 
     async componentDidMount() {
        const id = this.props.match.params.id;
@@ -11,11 +30,8 @@ export default class Record extends Component {
        const response = await api.get(`/market/${id}/`);
 
        await this.setState(response.data);
+       console.log(this.state);
     }
-
-    handleChange(event) {
-        this.setState({inputVal: event.target.value});
-      }
 
     handleDelete = async e => {
         e.preventDefault();
@@ -29,33 +45,41 @@ export default class Record extends Component {
 
     handleSubmit = async e => {
         e.preventDefault();
-
-        const data = new FormData();
-
         const id = this.props.match.params.id;
+        //const data = new FormData();
+        //const files = [];
+        // files.push(this.state.superMarketAdditionalImages[0]);
+        // files.push(this.state.superMarketAdditionalImages[1]);
+        // files.push(this.state.superMarketAdditionalImages[2]);
+        // files.push(this.state.superMarketAdditionalImages[3]);
 
-        data.append('superMarketName', this.state.superMarketName);
-        data.append('superMarketPhone', this.state.superMarketPhone);
-        data.append('superMarketDescription', this.state.superMarketDescription);
-        data.append('superMarketLocation.Street', this.state.superMarketLocation.Street);
-        data.append('superMarketLocation.Zip', this.state.superMarketLocation.Zip);
-        data.append('superMarketLocation.city', this.state.superMarketLocation.city);
-        data.append('superMarketLocation.state', this.state.superMarketLocation.state);
+        // data.append("superMarketAdditionalImages", files[0]);
+        // data.append("superMarketAdditionalImages", files[1]);
+        // data.append("superMarketAdditionalImages", files[2]);
+        // data.append("superMarketAdditionalImages", files[3]);
+        // data.append('superMarketName', this.state.superMarketName);
+        // data.append('superMarketPhone', this.state.superMarketPhone);
+        // data.append('superMarketDescription', this.state.superMarketDescription);
+        // data.append('superMarketLocation', JSON.stringify(this.state.superMarketLocation));
 
-        console.log(data + "teste")
-        await api.put(`/market/${id}/`, data);
-
+        await api.put(`/market/${id}/`, this.state);
         this.props.history.push('/');
     }
 
-    handleChange = e => {
-        e.preventDefault();
-        this.setState({ [e.target.name]: e.target.value });
+    handlgeImageChange = e => {
+        this.setState({ superMarketAdditionalImages: e.target.files }, () => { console.log(this.state.superMarketAdditionalImages) });
+
     }
 
-    handlgeImageChange = e => {
-        this.setState({superMarketAdditionalImages: e.target.files});
-    }
+    handleChange = e => {
+        this.setState({ [e.target.name]: e.target.value });
+     }
+
+     handleChangeObject = e => {
+        this.setState({  superMarketLocation:{
+            ...this.state.superMarketLocation,
+            [e.target.name]: e.target.value }});
+     }
 
 
     render(){
@@ -63,63 +87,77 @@ export default class Record extends Component {
             <div className="data-wrap">
                 <div className="images-wrap">
                 <div className="main-image">
-                <div><img src={this.state.superMarketMainImage ? this.state.superMarketMainImage.location : ''} alt=""/></div><input type="file" onChange={this.handlgeImageChange}/>
+                <div><img src={this.state.superMarketMainImage ? this.state.superMarketMainImage.location : ''} alt=""/></div>
                 </div>
                 <div className="additional-images">
-                    <div><img src={this.state.superMarketMainImage ? this.state.superMarketMainImage.location : ''} alt=""/><input type="file" onChange={this.handlgeImageChange}/></div>
-                    <div><img src={this.state.superMarketMainImage ? this.state.superMarketMainImage.location : ''} alt=""/><input type="file" onChange={this.handlgeImageChange}/></div>
-                    <div><img src={this.state.superMarketMainImage ? this.state.superMarketMainImage.location : ''} alt=""/><input type="file" onChange={this.handlgeImageChange}/></div>
+                    <div><img src={this.state.superMarketMainImage ? this.state.superMarketAdditionalImages[0][0].location : ''} alt=""/></div>
+                    <div><img src={this.state.superMarketMainImage ? this.state.superMarketAdditionalImages[1][0].location : ''} alt=""/></div>
+                    <div><img src={this.state.superMarketMainImage ? this.state.superMarketAdditionalImages[2][0].location : ''} alt=""/></div>
                 </div>
                 </div>
                 <div className="form">
-                    <label>Nome:</label>
+                    <label>Name:</label>
                     <input 
                         name="superMarketName"
                         type="text"
                         onChange={this.handleChange} 
                         defaultValue={this.state.superMarketName} 
                     />
-                    <label>Telefone:</label>
+                    <label>Phone:</label>
                     <input
                         name="superMarketPhone"
                         type="text"
                         onChange={this.handleChange} 
                         defaultValue={this.state.superMarketPhone} 
                     />
-                    <label>Descrição:</label>
+                    <label>Description:</label>
                     <input 
                         name="superMarketDescription"
                         type="text"
                         onChange={this.handleChange} 
                         defaultValue={this.state.superMarketDescription} 
                     />
-                    <label>Rua:</label>
+                    <label>Street:</label>
                     <input 
                         name="superMarketLocation.Street"
                         type="text"
-                        onChange={this.handleChange} 
-                        defaultValue={this.state.superMarketLocation ? this.state.superMarketLocation.Street : ''} 
+                        onChange={this.handleChangeObject} 
+                        defaultValue={this.state.superMarketLocation ? this.state.superMarketLocation.street : ''} 
                     />
-                    <label>CEP:</label>
+                    <label>Number:</label>
                     <input 
-                        name="superMarketLocation.Zip"
+                        name="number"
                         type="text"
-                        onChange={this.handleChange} 
-                        defaultValue={this.state.superMarketLocation ? this.state.superMarketLocation.Zip : ''} 
+                        onChange={this.handleChangeObject} 
+                        defaultValue={this.state.superMarketLocation ? this.state.superMarketLocation.number : ''} 
                     />
-                    <label>Cidade:</label>
+                    <label>District:</label>
                     <input
-                        name="superMarketLocation.city"
+                        name="district"
                         type="text"
-                        onChange={this.handleChange} 
+                        onChange={this.handleChangeObject} 
+                        defaultValue={this.state.superMarketLocation ? this.state.superMarketLocation.district : ''} 
+                    />
+                    <label>City:</label>
+                    <input 
+                        name="city"
+                        type="text"
+                        onChange={this.handleChangeObject} 
                         defaultValue={this.state.superMarketLocation ? this.state.superMarketLocation.city : ''} 
                     />
-                    <label>Estado:</label>
+                    <label>State:</label>
+                    <input 
+                        name="state"
+                        type="text"
+                        onChange={this.handleChangeObject} 
+                        defaultValue={this.state.superMarketLocation ? this.state.superMarketLocation.state : ''}
+                    />
+                    <label>Country:</label>
                     <input 
                         name="superMarketLocation.state"
                         type="text"
-                        onChange={this.handleChange} 
-                        defaultValue={this.state.superMarketLocation ? this.state.superMarketLocation.state : ''} 
+                        onChange={this.handleChangeObject} 
+                        defaultValue={this.state.superMarketLocation ? this.state.superMarketLocation.country : ''} 
                     />
                     <input 
                         type="button" 
@@ -131,7 +169,6 @@ export default class Record extends Component {
                         value="DELETE"
                         onClick={this.handleDelete}
                     />
-                    {console.log(this.state)}
                 </div>
             </div> 
         );
