@@ -9,7 +9,7 @@ Documentation for the api: https://github.com/leodaiub/supermarketapp-api/blob/m
 
 ## Uploading an array of images to Amazon S3 bucket.
 
-Uploading one image at a time was easy, but doing this with an array was the problem, the solution i have found was using the multer dependency and a for loop to append the data from the "req.files" object to my files array, and i used the .shift array function to remove the first object and pass it to the superMarketMainImage and the rest of the objects to superMarketAdditionalImages, and the content from the "req.body" to populate the other fields as well.
+Uploading one image at a time was easy, but doing this with an array was the problem, the solution i have found was using the multer dependency and a for loop to append the data from the "req.files" object to my files array and i used the .shift() array method to remove the first object and pass it to the superMarketMainImage and the rest of the objects to superMarketAdditionalImages and the content from the "req.body" to populate the other fields as well.
 
 ````
 async store(req, res) {
@@ -61,7 +61,7 @@ handleChangeObject = e => {
       [e.target.name]: e.target.value }});
 }
 ````
-But it did not work, cause it was excluding the rest of the object, so i used the rest operator to update the state of the object while mantaining the rest of the fields. 
+But it did not work, cause it was excluding the rest of the object, so i used the spread operator to update the state of the object while mantaining the rest of the fields. 
 ````
 handleChangeObject = e => {
   this.setState({  superMarketLocation:{
