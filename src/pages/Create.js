@@ -63,7 +63,7 @@ export default class Create extends Component {
     render(){
         return(
             <form id="new-post" onSubmit={this.handleSubmit}>
-                <label>Images: (max of four)</label>
+                <label>Images: (min. of 4)</label>
                 <input type="file"  required onChange={this.handlgeImageChange} multiple="multiple"/>
                 <input 
                     type="text" 

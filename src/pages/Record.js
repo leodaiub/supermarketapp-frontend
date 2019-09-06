@@ -90,9 +90,9 @@ export default class Record extends Component {
                 <div><img src={this.state.superMarketMainImage ? this.state.superMarketMainImage.location : ''} alt=""/></div>
                 </div>
                 <div className="additional-images">
-                    <div><img src={this.state.superMarketAdditionalImages[0] ? this.state.superMarketAdditionalImages[0][0].location : this.state.superMarketMainImage.location} alt=""/></div>
-                    <div><img src={this.state.superMarketAdditionalImages[1] ? this.state.superMarketAdditionalImages[1][0].location : this.state.superMarketMainImage.location} alt=""/></div>
-                    <div><img src={this.state.superMarketAdditionalImages[2] ? this.state.superMarketAdditionalImages[2][0].location : this.state.superMarketMainImage.location} alt=""/></div>
+                    <div><img src={this.state.superMarketMainImage ? this.state.superMarketAdditionalImages[0][0].location : ''} alt=""/></div>
+                    <div><img src={this.state.superMarketMainImage ? this.state.superMarketAdditionalImages[1][0].location : ''} alt=""/></div>
+                    <div><img src={this.state.superMarketMainImage ? this.state.superMarketAdditionalImages[2][0].location : ''} alt=""/></div>
                 </div>
                 </div>
                 <div className="form">
