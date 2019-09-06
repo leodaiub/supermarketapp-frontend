@@ -1,68 +1,37 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## SuperMarketApp
 
-## Available Scripts
+#### This application was built using React.js
 
-In the project directory, you can run:
+Documentation for the api: https://github.com/leodaiub/supermarketapp-api/blob/master/README.md
 
-### `npm start`
+#### Some of the difficulties i had while developing the app:
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+###### Uploading an array of images to Amazon S3 bucket.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+Uploading one image at a time was easy, but doing this with an array was the problem, the solution i have found was using the multer dependency and a for loop to append the data from the "req.files" object to my superMarketAdditionalImages array, and the content from the "req.body" to populate the other fields as well.
 
-### `npm test`
+##### Changing the state to make the PUT request to update a single record.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The problem here was that using the usual handleChange() function was creating another fields on my "this.state" instead of updating the nested fields on the superMarketLocation object. 
+````
+handleChange = e => {
+  this.setState({ [e.target.name]: e.target.value });
+}
+````
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Then i have found a solution, to update the state inside my Object like:
+````
+handleChangeObject = e => {
+  this.setState({  superMarketLocation:{
+      [e.target.name]: e.target.value }});
+}
+````
+But it did not work, cause it was excluding the rest of the object, so i used the rest operator to update the state of the object while mantaining the rest of the fields. 
+````
+handleChangeObject = e => {
+  this.setState({  superMarketLocation:{
+      ...this.state.superMarketLocation,
+      [e.target.name]: e.target.value }});
+}
+````
+Now it works!
