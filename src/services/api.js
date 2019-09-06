@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: 'http://localhost:3030/',
+    baseURL: 'http://supermarketappapi-dev.us-west-2.elasticbeanstalk.com/',
 });
 
 export default api;
