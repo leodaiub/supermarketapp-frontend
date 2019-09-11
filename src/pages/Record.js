@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import api from '../services/api';
 import './Record.css';
+import ErrorBoundary from './errorBoundary'
 
 export default class Record extends Component {
     constructor(props){
@@ -31,6 +32,10 @@ export default class Record extends Component {
 
        await this.setState(response.data);
        console.log(this.state);
+
+       if(!this.state.superMarketMainImage){
+        throw new Error('empty');
+    } 
     }
 
     handleDelete = async e => {
@@ -83,18 +88,29 @@ export default class Record extends Component {
 
 
     render(){
+        console.log(this.state);
         return (
             <div className="data-wrap">
+                {  this.state.superMarketAdditionalImages !== null &&          
+                (
                 <div className="images-wrap">
                 <div className="main-image">
                 <div><img src={this.state.superMarketMainImage ? this.state.superMarketMainImage.location : ''} alt=""/></div>
                 </div>
-                <div className="additional-images">
-                    <div><img src={this.state.superMarketMainImage ? this.state.superMarketAdditionalImages[0][0].location : ''} alt=""/></div>
-                    <div><img src={this.state.superMarketMainImage ? this.state.superMarketAdditionalImages[1][0].location : ''} alt=""/></div>
-                    <div><img src={this.state.superMarketMainImage ? this.state.superMarketAdditionalImages[2][0].location : ''} alt=""/></div>
+                <div className="additional-images"> 
+                <img 
+                src={this.state.superMarketAdditionalImages[0] ? this.state.superMarketAdditionalImages[0][0].location : ''} 
+                width ='100' alt=""/>
+                <img 
+                src={this.state.superMarketAdditionalImages[1] ? this.state.superMarketAdditionalImages[1][0].location : ''} 
+                width ='100' alt=""/>
+                <img 
+                src={this.state.superMarketAdditionalImages[2] ? this.state.superMarketAdditionalImages[2][0].location : ''} 
+                width ='100' alt=""/>
                 </div>
                 </div>
+                )
+                }
                 <div className="form">
                     <label>Name:</label>
                     <input 

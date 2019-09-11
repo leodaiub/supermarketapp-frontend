@@ -136,7 +136,7 @@ export default class Create extends Component {
                     required
                     onChange={this.handleChangeObject}
                 />
-                <button type="submit">Enviar</button>
+                <button type="submit">Send</button>
             </form>
         );
     }
