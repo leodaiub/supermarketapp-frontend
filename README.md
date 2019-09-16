@@ -1,5 +1,5 @@
 ## SuperMarketApp
-![alt text](https://imgur.com/a/pKnfiqm)
+![alt text](https://i.imgur.com/Ih0FLm6.png)
 #### This application was built using React.js
 https://supermarketapp.leonardodaiub.com
 
